@@ -32,6 +32,9 @@ class User extends Authenticatable
         return $query;
   
     }
+    public function dathang(){
+        return $this->hasMany(dathang::class,'nhanvien_id','id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

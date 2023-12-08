@@ -15,10 +15,10 @@ use App\Http\Controllers\categoryController;
 
 Route::get('/admin/login','userController@getLogin')->name('admin.login');
 Route::post('/admin/login','userController@postLogin')->name('admin.login');
-
+Route::get('/admin/logout','userController@logout')->name('admin.logout');
 Route::group(['prefix'=>'admin','middleware'=>'adminMiddleware'],function(){
     Route::get('/', 'adminController@index')->name('admin.index');
-    Route::get('/logout','userController@logout')->name('admin.logout');
+   
     // Route::get('/danhthu/index', 'admin_controller@danhthu')->name('admin.danhthu');
     // Route::get('/donhang', 'donhang_controller@index')->name('donhang.index');
     // Route::get('/donhang/show/{id}', 'donhang_controller@show')->name('donhang.show');
@@ -28,7 +28,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminMiddleware'],function(){
 
     // Route::post('/sanpham/nhap-excel','sanpham_controller@postnhap')->name('excel.nhap');
     // Route::get('/sanpham/xuat-excel','sanpham_controller@getxuat')->name('excel.xuat');
-    // Route::get('/sanpham/delete/{id}','sanpham_controller@delete')->name('sanpham.delete');
+    Route::get('/sanpham/delete/{id}','sanphamController@delete')->name('sanpham.delete');
 
     Route::resources([
         'danhmuc'=>'danhmucController',

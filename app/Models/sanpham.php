@@ -25,7 +25,7 @@ class sanpham extends Model
    
 	];
     public function dathang_chitiet(){
-    return $this->hasMany(dathang_chitiet::class,'sanpham_id','id');
+    return $this->hasMany(dathangChitiet::class,'sanpham_id','id');
     }
 
     public function xuatxu(){

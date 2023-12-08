@@ -14,7 +14,7 @@ class danhmucController extends Controller
     public function index()
     {
         //dd('asdasd');
-        $data=danhmuc::all();
+        $data=danhmuc::search()->paginate(10);
         return view('admin.danhmuc.index',compact('data'));
     }
 

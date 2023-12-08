@@ -35,11 +35,7 @@
                 <input id="giaxuat" type="number" min="0" class="form-control @error('giaxuat') is-invalid @enderror" name="giaxuat" value="{{ old('giaxuat') }}"  />
                 {{$errors->first('giaxuat')}}
             </div>
-            <div class="form-group">
-                <label for="sale">Sale % <span class="text-danger font-weight-bold">*</span></label>
-                <input id="sale" type="number" min="0" class="form-control @error('sale') is-invalid @enderror" name="sale" value="{{ old('sale') }}"  />
-                {{$errors->first('giaxuat')}}
-            </div>
+          
 
             <div class="form-group">
                 <label for="nhanhieu_id"><span class="text-danger font-weight-bold">*</span></label>
@@ -76,7 +72,9 @@
                 <label for="danhmuc_id"><span class="text-danger font-weight-bold">*</span></label>
                 <select id="danhmuc_id" class="form-control custom-select @error('danhmuc_id') is-invalid @enderror" name="danhmuc_id" >
                     <option value="">--Chọn danh mục sản phẩm--</option>
-                    <?php showdanhmuc($danhmuc)?>
+                    @foreach($danhmuc as $value)
+                    <option value="{{ $value->id }}">{{ $value->tendanhmuc}}</option>
+                @endforeach
                 </select>
                 {{$errors->first('danhmuc_id')}}
             </div>

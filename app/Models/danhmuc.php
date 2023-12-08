@@ -11,4 +11,14 @@ class danhmuc extends Model
     protected $table = 'danhmuc';
     protected $primaryKey = 'id';
     public $timestamps = false;
+    public function sanpham(){
+        return $this->hasMany(sanpham::class,'danhmuc_id','id');
+    }
+    public function scopeSearch($query){
+        if($tukhoa=request()->tukhoa){
+          $query=$query->where('tendanhmuc','like','%'.$tukhoa.'%');
+        }
+        return $query;
+  
+    }
 }

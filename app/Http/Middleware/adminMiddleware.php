@@ -26,7 +26,7 @@ class adminMiddleware
            
 
         }
-        return redirect('/admin/login');
+        return redirect('/admin/login')->with('no','Tài khoản hoặc mật khẩu không đúng');
        
     }
 }

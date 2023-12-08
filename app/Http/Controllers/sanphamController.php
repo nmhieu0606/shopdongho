@@ -213,6 +213,7 @@ class sanphamController extends Controller
         return Excel::download(new sanpham_export,'danh-sach-san-pham.xlsx');
     }
     public function delete($id){
+        
        
         if( sanpham::find($id)->dathang_chitiet->count()){
             return redirect()->route('sanpham.index')->with('no','không thể xóa sản phẩm vì sản phẩm có trong đơn hàng');

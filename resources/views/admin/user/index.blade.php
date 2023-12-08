@@ -1,11 +1,19 @@
 @extends('layouts.admin')
 @section('main')
+
+@if(Session::has('yes'))
+   <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('yes') }}</p>
+  @endif
+  @if(Session::has('no'))
+   <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('no') }}</p>
+  @endif
 <form action="" method="GET" class="form-inline">
   <div class="form-group ">
     <input class="form-control" name="tukhoa" placeholder="Nhập tên danh mục">
    </div>
   <button type="submit" class="btn btn-primary">Tìm Kiếm</button>
 </form>
+
 
 <a href="{{route('user.create')}}"  class="btn btn-primary mt-1">Thêm</a> 
 <div class="card" >
@@ -61,7 +69,7 @@
       <form>
     </div>
 </div>
-
+<div class="">{{ $data->appends(request()->all())->links() }}</div>
 @endsection
 
 @section('js')

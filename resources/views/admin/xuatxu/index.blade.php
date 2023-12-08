@@ -1,7 +1,12 @@
 @extends('layouts.admin')
 @section('main')
 <p>index xuatxu</p>
-
+@if(Session::has('yes'))
+   <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('yes') }}</p>
+  @endif
+  @if(Session::has('no'))
+   <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('no') }}</p>
+  @endif
 <a href="{{route('xuatxu.create')}}" type="button" class="btn btn-primary">Thêm</a>
 
 <table class="table">
@@ -32,6 +37,7 @@
       
     </tbody>
   </table>
+  <div class="">{{ $data->appends(request()->all())->links() }}</div>
 @endsection
 
 @section('js')

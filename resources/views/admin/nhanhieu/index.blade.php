@@ -2,6 +2,18 @@
 @section('main')
 <p>index nhanhieu</p>
 
+@if(Session::has('yes'))
+   <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('yes') }}</p>
+  @endif
+  @if(Session::has('no'))
+   <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('no') }}</p>
+  @endif
+  <form action="" method="GET" class="form-inline">
+    <div class="form-group ">
+      <input class="form-control" name="tukhoa" placeholder="Nhập tên danh mục">
+     </div>
+    <button type="submit" class="btn btn-primary">Tìm Kiếm</button>
+  </form>
 <a href="{{route('nhanhieu.create')}}" type="button" class="btn btn-primary">Thêm</a>
 
 <table class="table">
@@ -28,10 +40,13 @@
         
         
     @endforeach
-     
+    <form method="POST" action="" id="form-delete">
+      @csrf @method('DELETE')
+    <form>
       
     </tbody>
   </table>
+  <div class="">{{ $data->appends(request()->all())->links() }}</div>
 @endsection
 
 @section('js')

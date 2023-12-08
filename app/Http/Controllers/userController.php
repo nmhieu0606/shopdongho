@@ -160,13 +160,14 @@ class userController extends Controller
     public function destroy($id)
     {
         $data=User::find($id);
-        if($data->dathang->count()==0){
+        
+        if($data->dathang->count()==0||$data->dathang->count()==null){
             $data->delete();
             return redirect()->back()->with('yes','xóa thành công');
-    }
-    else{
-        return redirect()->back()->with('no','xóa không thành công');
-    }
+        }
+        else{
+            return redirect()->back()->with('no','xóa không thành công');
+        }
     }
 
     public function getLogin(){
