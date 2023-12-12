@@ -37,6 +37,11 @@
             'name'=>'Sản phẩm',
             'icon'=>'icon-user'
         ],
+        [
+            'route'=>'dathang.index',
+            'name'=>'Đơn hàng',
+            'icon'=>'icon-user'
+        ],
     ]
 
 

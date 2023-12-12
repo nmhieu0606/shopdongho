@@ -81,6 +81,7 @@ class danhmucController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
        // dd($id);
         $messages = [
             'tendanhmuc.required' => 'Tên danh mục không được bỏ trống',

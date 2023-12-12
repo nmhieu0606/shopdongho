@@ -2,12 +2,7 @@
 @section('main')
 <p>index nhanhieu</p>
 
-@if(Session::has('yes'))
-   <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('yes') }}</p>
-  @endif
-  @if(Session::has('no'))
-   <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('no') }}</p>
-  @endif
+
   <form action="" method="GET" class="form-inline">
     <div class="form-group ">
       <input class="form-control" name="tukhoa" placeholder="Nhập tên danh mục">
@@ -52,10 +47,14 @@
 @section('js')
 
 <script>
-  $('.btn-delete').click(function(e){
-    e.preventDefault();
-    alert('asdsa');
-
+  $('.btn-delete').click(function(ev){
+    ev.preventDefault();
+    var _href=$(this).attr('href');
+    $('form#form-delete').attr('action',_href);
+    if(confirm('bạn có chắc muốn xóa nó không?')){
+        $('form#form-delete').submit();
+    }
+    
   })
 </script>
 @endsection

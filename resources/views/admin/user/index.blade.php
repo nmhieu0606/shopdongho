@@ -1,12 +1,7 @@
 @extends('layouts.admin')
 @section('main')
 
-@if(Session::has('yes'))
-   <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('yes') }}</p>
-  @endif
-  @if(Session::has('no'))
-   <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('no') }}</p>
-  @endif
+
 <form action="" method="GET" class="form-inline">
   <div class="form-group ">
     <input class="form-control" name="tukhoa" placeholder="Nhập tên danh mục">
